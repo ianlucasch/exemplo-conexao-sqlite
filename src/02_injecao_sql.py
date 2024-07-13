@@ -1,6 +1,6 @@
 import sqlite3
 
-conexao = sqlite3.connect("../data/meu_db.sqlite")
+conexao = sqlite3.connect("../data/meu_bd.sqlite")
 
 cursor = conexao.cursor()
 cursor.row_factory = sqlite3.Row

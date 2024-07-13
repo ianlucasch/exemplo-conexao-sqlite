@@ -35,6 +35,7 @@ def remover_dados(conexao, cursor, id):
 def recuperar_cliente(cursor, id):
     cursor.execute("SELECT * FROM clientes WHERE id=?;", (id,))
     return cursor.fetchone()
+
 cliente = recuperar_cliente(cursor, 1)
 print(dict(cliente))
 print(cliente["id"], "-", cliente["nome"], "-", cliente["email"])
@@ -42,6 +43,7 @@ print(f"Seja bem-vindo ao sistema {cliente["nome"]}.")
 
 def listar_clientes(cursor):
     return cursor.execute("SELECT * FROM clientes ORDER BY nome;")
+
 clientes = listar_clientes(cursor)
 for cliente in clientes:
     print(dict(cliente))
@@ -65,3 +67,5 @@ atualizar_dados(conexao, cursor, "nome", "email", "id")
 remover_dados(conexao, cursor, 1)
 
 excluir_bd(cursor)
+
+conexao.close()
